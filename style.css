@@ -11,11 +11,16 @@ body {
 
 .container {
   background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 25px 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
   width: 90%;
-  max-width: 400px;
+  max-width: 450px;
+  transition: all 0.3s;
+}
+
+.container:hover {
+  transform: translateY(-2px);
 }
 
 h1 {
@@ -31,9 +36,11 @@ h1 {
 
 #task-input {
   flex: 1;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: border-color 0.2s;
 }
 
 #add-btn {
@@ -46,7 +53,7 @@ h1 {
 }
 
 #add-btn:hover {
-  background: #0984e3;
+  transform: scale(1.05);
 }
 
 
@@ -56,42 +63,68 @@ ul {
 }
 
 li {
-  background: #dcdde1;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 8px;
+  background: #f1f2f6;
+  margin-bottom: 12px;
+  padding: 12px 10px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 0.2s;
 }
 
-.delete-btn {
-  background: transparent;
-  border: none;
-  color: red;
-  font-size: 16px;
-  margin-left: 10px;
-  cursor: pointer;
-}
 
 .delete-btn:hover {
-  color: darkred;
+  color: red;
+  transform: scale(1.2);
 }
 
 li:hover {
-  background: #ced6e0;
+  background: #dcdde1;
   cursor: pointer;
 }
 
-.edit-btn {
+.edit-btn, .delete-btn {
   background: transparent;
   border: none;
-  color: orange;
-  font-size: 16px;
-  margin-left: 5px;
+  font-size: 18px;
+  margin-left: 8px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .edit-btn:hover {
-  color: darkorange;
+  color: orange;
+  transform: scale(1.2);
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+#task-input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  #add-btn {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  li {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .delete-btn, .edit-btn {
+    font-size: 16px;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #7f8fa6;
 }
