@@ -13,6 +13,19 @@ function addTask() {
   const li = document.createElement("li");
   li.textContent = taskText;
 
+  const editBtn = document.createElement("button");
+  editBtn.textContent = "Modifier";
+  editBtn.classList.add("edit-btn");
+
+  editBtn.addEventListener("click", () => {
+    const newText = prompt(" Modifier la tâche :", li.firstChild.textContent);
+    if (newText !== null && newText.trim() !== "") {
+      li.firstChild.textContent = newText.trim();
+    }
+  });
+
+  li.appendChild(editBtn);
+
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Supprimer";
   deleteBtn.classList.add("delete-btn");
